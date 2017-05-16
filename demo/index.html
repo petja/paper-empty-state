@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>paper-empty-state demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../paper-empty-state.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic demo</h3>
+      <demo-snippet>
+        <template>
+          <paper-empty-state></paper-empty-state>
+        </template>
+      </demo-snippet>
+
+      <h3>Customize text and the icon</h3>
+      <demo-snippet>
+        <template>
+          <paper-empty-state text="Hello world" icon="report-problem"></paper-empty-state>
+        </template>
+      </demo-snippet>
+
+      <h3>Hide automatically</h3>
+      <p>You can pass an array to <code>items</code> property so we can hide empty state whenever there's contents in the array
+      <demo-snippet>
+        <template>
+          <paper-empty-state text="Hello world" icon="report-problem" items="[]"></paper-empty-state>
+        </template>
+      </demo-snippet>
+
+      <h3>Show custom content when items are present</h3>
+      <demo-snippet>
+        <template>
+          <paper-empty-state text="Hello world" icon="report-problem" items="['a', 'b', 'c']">
+            <ul>
+                <li>foobar</li>
+                <li>baz quz</li>
+            </ul>
+          </paper-empty-state>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

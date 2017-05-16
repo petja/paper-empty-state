@@ -1,0 +1,71 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="paper-empty-state">
+  <template>
+    <style>
+      :host {
+        display: block;
+        }
+        #empty-state {
+        text-align: center;
+        color: var(--paper-grey-500, #9E9E9E);
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0 auto;
+      }
+        iron-icon {
+            margin: 0.5em;
+            height: 2em;
+            width: 2em;
+        }
+    </style>
+    <template is="dom-if" if="[[_isEmpty(items)]]">
+        <div id="empty-state">
+            <iron-icon icon="[[icon]]"></iron-icon>
+            <div>[[text]]</div>
+        </div>
+    </template>
+
+    <template is="dom-if" if="[[!_isEmpty(items)]]">
+        <slot></slot>
+    </template>
+  </template>
+
+  <script>
+    /**
+     * `paper-empty-state`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PaperEmptyState extends Polymer.Element {
+      static get is() { return 'paper-empty-state'; }
+      static get properties() {
+        return {
+          icon: {
+            type: String,
+            value: 'assessment'
+          },
+          text: {
+            type: String,
+            value: 'Nothing to see here'
+          },
+          items: {
+            type: Array,
+            value: [],
+          }
+        };
+      }
+
+        _isEmpty(arr) {
+            return arr.length === 0;
+        }
+    }
+
+    window.customElements.define(PaperEmptyState.is, PaperEmptyState);
+  </script>
+</dom-module>
