@@ -1,21 +1,58 @@
-# \<paper-empty-state\>
+# Empty state
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/petja/paper-empty-state)
 
+Element automatically observers array given to it and shows [empty state](https://material.io/guidelines/patterns/empty-states.html) whenever the array is empty. And when array gets its contents, we'll automatically switch to your custom HTML. However, you can also use this element standalone without any arrays, then we just show empty state always.
 
-## Install the Polymer-CLI
+## Demos
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+### Customize text and the icons
 
-## Viewing Your Element
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <link rel="import" href="paper-empty-state.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-empty-state text="Hello world" icon="backup"></paper-empty-state>
 ```
 
-## Running Tests
+### Automatically toggle empty state
 
+* Array without contents, shows an empty state
+* Array with contents, shows your custom HTML
+
+<!--
 ```
-$ polymer test
+<custom-element-demo>
+  <template>
+    <link rel="import" href="paper-empty-state.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-empty-state items="[]">Custom content</paper-empty-state>
+<hr />
+<paper-empty-state items="['a', 'b', 'c']">Custom content</paper-empty-state>
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+## License
+
+MIT License
+
+[Checkout LICENSE file](LICENSE)
